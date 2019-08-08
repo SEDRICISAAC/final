@@ -1,0 +1,41 @@
+@import "../../scss/mixins";
+
+@include tablla;
+@include modals;
+h1{
+  text-align: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/fontLogin.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  z-index: -1;
+}
+
+.addData {
+  margin: 40px 60px 0 0;
+  text-align: right;
+  a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #0aeba0ad;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 17px;
+    cursor: pointer;
+  }
+}

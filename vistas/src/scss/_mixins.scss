@@ -1,0 +1,384 @@
+@mixin modals {
+    header
+    {
+        position: relative;
+        display: block;
+        // background: red;
+    }
+    .w3-modal
+    {
+        z-index:3;
+        display:none;
+        padding-top:0;
+        position:fixed;
+        left:0;
+        top:0;
+        right: 0;
+        width:100%;
+        height:100%;
+        overflow:auto;
+        background-color:rgba(0, 0, 0, 0.75)
+    }
+    .w3-modal-content {
+        position: absolute;
+        top: 125%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 440px;
+        height: 700px;
+        padding: 10px 60px;
+        background: #d4d4d499;
+        margin-bottom: 30px;
+    }
+
+    .w3-display-topright
+    {
+        position: absolute;
+        right:0;
+        top:0;
+        cursor: pointer;
+    }
+}
+@mixin tablla {
+    .table-wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: auto;
+    
+    .fl-table {
+    background-color: #fff;
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    
+    th {
+    background-color: #5b7ee0;
+    border-bottom: 5px solid #e3f0ed;
+    color: #fff;
+    text-align: center;
+    }
+    
+    th,
+    td {
+    padding: 20px;
+    
+    }
+    
+    tr:nth-child(even) {
+    background-color: rgb(236, 236, 236);
+    }
+    
+    tr:hover {
+    background-color: #5b7ee067;
+    color: #fff
+    }
+    }
+}
+@mixin table_style {
+    *{
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    h1{
+        text-align: center;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #000;
+        padding: 30px 0;
+        font-family: Helvetica;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .table-wrapper{
+        margin: 10px 70px 70px;
+        box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    }
+    
+    .fl-table {
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: normal;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        white-space: nowrap;
+        background-color: white;
+        text-transform: uppercase;
+    }
+    
+    .fl-table td, .fl-table th {
+        text-align: center;
+        padding: 8px;
+    }
+    
+    .fl-table td {
+        border-right: 1px solid #f8f8f8;
+        font-size: 12px;
+    }
+    
+    .fl-table thead th {
+        color: #ffffff;
+        background: #4FC3A1;
+    }
+    
+    
+    .fl-table thead th:nth-child(odd) {
+        color: #ffffff;
+        background: #324960;
+    }
+    
+    .fl-table tr:nth-child(even) {
+        background: #F8F8F8;
+    }
+    
+
+
+    // tabla 2
+    
+    /* Responsive */
+    
+    @media (max-width: 767px) {
+        .fl-table {
+            display: block;
+            width: 100%;
+        }
+        .table-wrapper:before{
+            content: "Scroll horizontally >";
+            display: block;
+            text-align: right;
+            font-size: 11px;
+            color: white;
+            padding: 0 0 10px;
+        }
+        .fl-table thead, .fl-table tbody, .fl-table thead th {
+            display: block;
+        }
+        .fl-table thead th:last-child{
+            border-bottom: none;
+        }
+        .fl-table thead {
+            float: left;
+        }
+        .fl-table tbody {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+        }
+        .fl-table td, .fl-table th {
+            padding: 20px .625em .625em .625em;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+        }
+        .fl-table thead th {
+            text-align: left;
+            border-bottom: 1px solid #f7f7f9;
+        }
+        .fl-table tbody tr {
+            display: table-cell;
+        }
+        .fl-table tbody tr:nth-child(odd) {
+            background: none;
+        }
+        .fl-table tr:nth-child(even) {
+            background: transparent;
+        }
+        .fl-table tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tr td:nth-child(even) {
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tbody td {
+            display: block;
+            text-align: center;
+        }
+    }
+}
+
+@mixin buttons {
+    .addData{
+        position: fixed;
+        right: 5%;
+    }
+    .reclamosPage{
+        position: fixed;
+        left: 5%;
+    }
+    .backHome{
+        position: fixed;
+        right: 5%;
+        bottom: 5%;
+    }
+    .pdfButton{
+        position: fixed;
+        left: 5%;
+        bottom: 5%;
+    }
+    .levelDown{
+        position: fixed;
+        right: 10%;
+        bottom: 5%;
+    }
+}
+
+
+
+@mixin sidebar($color) 
+{
+    * 
+    {
+        box-sizing: border-box;
+    }
+
+    body{
+        height: 100%;
+    }
+    .sidebar 
+    {
+        border-right: 1px solid rgba(255, 255, 255, .4);
+
+        // background-image: url('../../assets/fondo1.jpg');           //NO SE SI PONER IMAGEN :V
+        background-image: url("../../assets/sideBar-font.jpg");
+        position: fixed;
+        float: left;
+        top: 0;
+        left: 0;
+        float: left;
+        width: 300px;
+        height: 100%;
+        padding: 30px;
+        transform: translate(-100%);
+        transition: transform .2s linear;
+        box-shadow: 3px 0 5px rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, .5);
+
+    }
+    .sidebar:hover {transform: translate(0);}
+    .sidebar:hover .label {opacity: 0;}
+    .label 
+    {
+        width: 25px;
+        height: 100%;
+        background: $color;
+        position: absolute;
+        right: -25px;
+        top: 0;
+        box-shadow: 3px 0 5px rgba(0, 0, 0, .5);
+        transition: opacity .2s linear;
+    }
+    img 
+    {
+        width: 50%;
+        left: 25%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+@mixin buttons1($color1, $text) 
+{
+    a
+    {
+        position: absolute;
+        display: inline-block;
+        padding: 6px 25px;
+        color: $white;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-decoration: none;
+        font-size: 20px;
+        overflow: hidden;
+        transition: 0.2s;
+    }
+    a:hover
+    {
+        color: $text;
+        background: $color1;
+        box-shadow: 0 0 10px $white, 0 0 40px $color1, 0 0 80px $white;
+        transition-delay: 0.5s;
+    }
+    a span
+    {
+        position: absolute;
+        display: block;
+    }
+    a span:nth-child(1)
+    {
+        top: 0%;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, $color1)
+    }
+    a:hover span:nth-child(1)
+    {
+        left: 100%;
+        transition: 1s;
+    }
+    a span:nth-child(3)
+    {
+        bottom: 0%;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, $color1)
+    }
+    a:hover span:nth-child(3)
+    {
+        right: 100%;
+        transition: 1s;
+        transition-delay: 0.5s;
+    }
+    a span:nth-child(2)
+    {
+        top: -100%;
+        right: 0%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, $color1)
+    }
+    a:hover span:nth-child(2)
+    {
+        top: 100%;
+        transition: 1s;
+        transition-delay: 0.25s;
+    }
+    a span:nth-child(4)
+    {
+        bottom: 0%;
+        left: 0%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, $color1)
+    }
+    a:hover span:nth-child(4)
+    {
+        bottom: 100%;
+        transition: 1s;
+        transition-delay: 0.75s;
+    }
+}
+
+@mixin input {
+    background-color: #3CBC8D;
+    color: white;
+    }
+
+
+
+    // -----------------------------------------------------------------------
