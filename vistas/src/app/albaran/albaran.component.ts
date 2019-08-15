@@ -47,8 +47,8 @@ export class AlbaranComponent implements OnInit {
     this.detallealbaranForm = this.formBuilder.group({
       id: [''],
       idalbaran: ['',[Validators.required]],
-      cantidad: ['',[Validators.required]],
-      precio: ['',[Validators.required]],
+      cantidad: ['',[Validators.required,Validators.pattern('[1-9]')]],
+      precio: ['',[Validators.required,Validators.pattern('[0-9]+,.+[0-9]')]],
       idmaterial: ['',[Validators.required]],
     });
   }
@@ -104,7 +104,9 @@ export class AlbaranComponent implements OnInit {
 
     let tabla = 'albaran'
     let register = {tabla: tabla, datos: [{idpedido: idpedido, fecha_entrega: this.fecha_orden, total: total}]}
+    if (this.albaranForm.valid){}
     this.http.post(environment.API_URL, register)
+    
     .subscribe( data => {
       // this.postData = data
     })

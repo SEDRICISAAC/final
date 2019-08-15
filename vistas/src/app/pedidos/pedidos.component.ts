@@ -42,7 +42,7 @@ export class PedidosComponent implements OnInit {
       id: [''],
       idproveedor: ['',[Validators.required]],
       fecha: [''],
-      total: ['',[Validators.required]],
+      total: ['',[Validators.required,Validators.pattern('[0-9]{1,10}')]],
     });
   }
 
@@ -51,7 +51,7 @@ export class PedidosComponent implements OnInit {
       id: [''],
       nombre: ['',[Validators.required]],
       cantidad: ['',[Validators.required]],
-      precio: ['',[Validators.required]],
+      precio: ['',[Validators.required,Validators.required]],
       idpedido: ['',[Validators.required]],
       idmaterial: ['',[Validators.required]],
     });

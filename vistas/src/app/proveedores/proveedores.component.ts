@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-proveedores',
@@ -33,10 +34,10 @@ export class ProveedoresComponent implements OnInit {
   formularioProveedor(){
     this.proveedorForm = this.formBuilder.group({
       id: [''],
-      identificacion: ['',[Validators.required]],
-      nombre: ['',[Validators.required]],
-      direccion: ['',[Validators.required]],
-      telefono: ['',[Validators.required]]
+      identificacion: ['',[Validators.required,Validators.pattern('[0-9]{1,10}')]],
+      nombre: ['',[Validators.required,Validators.pattern('^[A-Z]+[a-z]*$')]],
+      direccion: ['',[Validators.required,Validators.pattern('^[A-Z]+[a-z]*$')]],
+      telefono: ['',[Validators.required,Validators.pattern('(09)+[0-9]{8}')]]
     });
   }
 
@@ -69,12 +70,28 @@ export class ProveedoresComponent implements OnInit {
   
       let tabla = 'proveedor'
       let register = {tabla: tabla, datos: [{identificacion: identificacion, nombre: nombre, direccion: direccion, telefono: telefono}]}
-      this.http.post(environment.API_URL, register)
+      this.http.post<any>(environment.API_URL, register)
       .subscribe( data => {
         // this.postData = data
+         /*sweetAlert*/
+         if(data.ok == true){
+          Swal.fire({
+            type: 'success',
+            title: 'Genial!',
+            text: 'Proveedor registrado'
+          })
+        }
+        else{
+          Swal.fire({
+            type: 'error',
+            title: 'Ups!',
+            text: 'No se pudo registrar el proveedor'
+          })
+        }
       })
       window.location.reload()
     }
+
     //MODAL NEW PROVEEDOR
 
 }

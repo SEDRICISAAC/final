@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-clientes',
@@ -33,10 +35,10 @@ export class ClientesComponent implements OnInit {
   formularioCliente(){
     this.clienteForm = this.formBuilder.group({
       id: [''],
-      identificacion: ['',[Validators.required]],
-      nombre: ['',[Validators.required]],
-      apellido: ['',[Validators.required]],
-      direccion: ['',[Validators.required]]
+      identificacion: ['',[Validators.required,Validators.pattern('^[0-9]{1,10}')]],
+      nombre: ['',[Validators.required,Validators.pattern('^[A-Z]+[a-z]*$')]],
+      apellido: ['',[Validators.required,Validators.pattern('^[A-Z]+[a-z]*$')]],
+      direccion: ['',[Validators.required,Validators.pattern('^[A-Z]+[a-z]*$')]]
     });
   }
 
@@ -69,11 +71,25 @@ export class ClientesComponent implements OnInit {
 
     let tabla = 'cliente'
     let register = {tabla: tabla, datos: [{identificacion: identificacion, nombre: nombre, direccion: direccion, apellido: apellido}]}
-    this.http.post(environment.API_URL, register)
+    this.http.post<any>(environment.API_URL, register)
     .subscribe( data => {
+      if(data.ok == true){
+        Swal.fire({
+          type: 'success',
+          title: 'Genial!',
+          text: 'Proveedor registrado'
+        })
+      }
+      else{
+        Swal.fire({
+          type: 'error',
+          title: 'Ups!',
+          text: 'No se pudo registrar el proveedor'
+        })
+      }
       // this.postData = data
     })
-    window.location.reload()
+   
   }
   //MODAL NEW PROVCLIENTEEEDOR
 

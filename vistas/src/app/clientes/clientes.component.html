@@ -52,7 +52,7 @@
                     <div>
                         <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.required">
                             Obligatorio </span>
-                        <!-- <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                        <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> 
                     </div><br>
 
                     <strong>Nombre</strong><br>
@@ -60,7 +60,7 @@
                     <div>
                         <span class="errors" *ngIf="clienteForm.controls['nombre'].errors?.required"> Obligatorio
                         </span>
-                        <!-- <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                        <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> 
                     </div><br>
 
                     <strong>Apellido</strong><br>
@@ -68,7 +68,7 @@
                     <div>
                         <span class="errors" *ngIf="clienteForm.controls['apellido'].errors?.required"> Obligatorio
                         </span>
-                        <!-- <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                        <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> 
                     </div><br>
 
                     <strong>Dirección</strong><br>
@@ -76,7 +76,7 @@
                     <div>
                         <span class="errors" *ngIf="clienteForm.controls['direccion'].errors?.required"> Obligatorio
                         </span>
-                        <!-- <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                        <span class="errors" *ngIf="clienteForm.controls['identificacion'].errors?.pattern"> Inválido </span> 
                     </div><br>
 
                     <a type="button" (click)="postDataCliente()">Guardar</a>

@@ -71,7 +71,7 @@
                         <div>
                             <span class="errors" *ngIf="facturaForm.controls['total'].errors?.required"> Obligatorio
                             </span>
-                            <!-- <span class="errors" *ngIf="facturaForm.controls['total'].errors?.pattern"> Inválido </span> -->
+                            <span class="errors" *ngIf="facturaForm.controls['total'].errors?.pattern"> Inválido </span> 
                         </div><br><br>
 
                         <a type="button" (click)="postDataFactura()">Guardar</a>
@@ -118,7 +118,7 @@
                         <div>
                             <span class="errors" *ngIf="detallefacturaForm.controls['cantidad'].errors?.required">
                                 Obligatorio </span>
-                            <!-- <span class="errors" *ngIf="detallepedidosForm.controls['cantidad'].errors?.pattern"> Inválido </span> -->
+                            <span class="errors" *ngIf="detallepedidosForm.controls['cantidad'].errors?.pattern"> Inválido </span> 
                         </div><br>
 
                         <strong>PRECIO</strong><br>
@@ -127,7 +127,7 @@
                             <span class="errors" *ngIf="detallefacturaForm.controls['precio'].errors?.required">
                                 Obligatorio
                             </span>
-                            <!-- <span class="errors" *ngIf="detallepedidosForm.controls['precio'].errors?.pattern"> Inválido </span> -->
+                            <span class="errors" *ngIf="detallepedidosForm.controls['precio'].errors?.pattern"> Inválido </span> 
                         </div><br><br>
 
                         <a type="button" (click)="postDataDetalleFacturas()">

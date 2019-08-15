@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-materiales',
@@ -39,11 +41,11 @@ export class MaterialesComponent implements OnInit {
   formularioMateriales(){
     this.materialesForm = this.formBuilder.group({
       id: [''],
-      nombre: ['',[Validators.required]],
-      descripcion: ['',[Validators.required]],
+      nombre: ['',[Validators.required,Validators.pattern('^[A-Z]+[a-z]*$')]],
+      descripcion: ['',[Validators.required,Validators.pattern('^[a-z]*$')]],
       fecha_registro: ['',[Validators.required]],
       fecha_actualizacion: ['',[Validators.required]],
-      precio: ['',[Validators.required]],
+      precio: ['',[Validators.required,Validators.pattern('[0-9]{1,10}+[,.]+[0-9]{1,10}')]],
       idnicho: ['',[Validators.required]],
       idproveedor: ['',[Validators.required]],
     });
@@ -83,9 +85,22 @@ export class MaterialesComponent implements OnInit {
     let returning
     let tabla = 'material'
     let register = {tabla: tabla, datos: [{nombre: nombre, descripcion: descripcion, fecha_registro: this.fechaMaterial, fecha_actualizacion: this.fechaMaterial, precio: precio, idnicho: idnicho, idproveedor: idproveedor}]}
-    this.http.post(environment.API_URL, register)
+    this.http.post<any>(environment.API_URL, register)
     .subscribe( data => { 
-      returning = data
+      if(data.ok == true){
+        Swal.fire({
+          type: 'success',
+          title: 'Genial!',
+          text: 'Proveedor registrado'
+        })
+      }
+      else{
+        Swal.fire({
+          type: 'error',
+          title: 'Ups!',
+          text: 'No se pudo registrar el proveedor'
+        })
+      }
     })
     window.location.reload()
   }

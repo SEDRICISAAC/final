@@ -54,7 +54,7 @@
                                 <div>
                                     <span class="errors" *ngIf="proveedorForm.controls['identificacion'].errors?.required">
                                         Obligatorio </span>
-                                    <!-- <span class="errors" *ngIf="proveedorForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                                    <span class="errors" *ngIf="proveedorForm.controls['identificacion'].errors?.pattern"> Inválido </span> 
                                 </div><br>
             
                                 <strong>Nombre</strong><br>
@@ -62,7 +62,7 @@
                                 <div>
                                     <span class="errors" *ngIf="proveedorForm.controls['nombre'].errors?.required"> Obligatorio
                                     </span>
-                                    <!-- <span class="errors" *ngIf="proveedorForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                                    <span class="errors" *ngIf="proveedorForm.controls['nombre'].errors?.pattern"> Inválido </span> 
                                 </div><br>
             
                                 <strong>Dirección</strong><br>
@@ -70,7 +70,7 @@
                                 <div>
                                     <span class="errors" *ngIf="proveedorForm.controls['direccion'].errors?.required"> Obligatorio
                                     </span>
-                                    <!-- <span class="errors" *ngIf="proveedorForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                                    <span class="errors" *ngIf="proveedorForm.controls['direccion'].errors?.pattern"> Inválido </span> 
                                 </div><br>
             
                                 <strong>Teléfono</strong><br>
@@ -78,7 +78,7 @@
                                 <div>
                                     <span class="errors" *ngIf="proveedorForm.controls['telefono'].errors?.required"> Obligatorio
                                     </span>
-                                    <!-- <span class="errors" *ngIf="proveedorForm.controls['identificacion'].errors?.pattern"> Inválido </span> -->
+                                    <span class="errors" *ngIf="proveedorForm.controls['telefono'].errors?.pattern"> Inválido </span> 
                                 </div><br>
             
                                 <a type="button" (click)="postDataProveedor()">Guardar</a>

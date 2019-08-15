@@ -123,7 +123,7 @@
                         <div>
                             <span class="errors" *ngIf="detallepedidosForm.controls['cantidad'].errors?.required">
                                 Obligatorio </span>
-                            <!-- <span class="errors" *ngIf="detallepedidosForm.controls['cantidad'].errors?.pattern"> Inválido </span> -->
+                            <span class="errors" *ngIf="detallepedidosForm.controls['cantidad'].errors?.pattern"> Inválido </span> 
                         </div><br>
 
                         <strong>PRECIO</strong><br>
@@ -131,11 +131,14 @@
                         <div>
                             <span class="errors" *ngIf="detallepedidosForm.controls['precio'].errors?.required">
                                 Obligatorio </span>
-                            <!-- <span class="errors" *ngIf="detallepedidosForm.controls['precio'].errors?.pattern"> Inválido </span> -->
+                            <span class="errors" *ngIf="detallepedidosForm.controls['precio'].errors?.pattern"> Inválido </span> -->
                         </div><br><br>
 
-                        <a type="button" (click)="postDataDetallePedidos()">
+                        <!--<a type="button" (click)="postDataDetallePedidos()">
                             Guardar
+                        </a>*/-->
+                        <a type="button" (click)="postDataDetallePedidos()" class="w3-display-bottomright">
+                            
                         </a>
                     </form>
                 </div>
